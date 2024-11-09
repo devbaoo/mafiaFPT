@@ -192,7 +192,7 @@
     const toggleCheckbox = document.getElementById("toggle-mode");
     const body = document.body;
 
-    // Hàm để kích hoạt dark mode hoặc light mode dựa trên hệ thống
+    // Function to apply system theme
     function applySystemTheme(e) {
       if (e.matches) {
         body.classList.add("dark-mode");
@@ -213,12 +213,12 @@
       }
     }
 
-    // Kiểm tra và áp dụng dark mode theo hệ thống
+    // Check and apply dark mode based on system preference
     const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-    applySystemTheme(systemPrefersDark); // Gọi lần đầu theo cài đặt hệ thống
-    systemPrefersDark.addEventListener("change", applySystemTheme); // Theo dõi thay đổi hệ thống
+    applySystemTheme(systemPrefersDark);
+    systemPrefersDark.addEventListener("change", applySystemTheme);
 
-    // Toggle giữa light mode và dark mode khi người dùng thay đổi toggleCheckbox
+    // Toggle between light and dark mode when user changes the checkbox
     toggleCheckbox.addEventListener("change", () => {
       if (toggleCheckbox.checked) {
         body.classList.remove("light-mode");
